@@ -16,6 +16,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'import/no-dynamic-require': 'off',
     'global-require': 'off',
+    'import/extensions': 'off',
     'no-param-reassign': ['error', { props: false }],
     // A temporary hack related to IDE not resolving correct package.json
     'import/no-extraneous-dependencies': 'off',
