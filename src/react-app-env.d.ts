@@ -40,16 +40,15 @@ declare module '*.png' {
 }
 
 declare module '*.webp' {
-    const src: string;
-    export default src;
+  const src: string;
+  export default src;
 }
 
 declare module '*.svg' {
   import * as React from 'react';
 
-  export const ReactComponent: React.FunctionComponent<React.SVGProps<
-    SVGSVGElement
-  > & { title?: string }>;
+  // eslint-disable-next-line max-len
+  export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string }>;
 
   const src: string;
   export default src;

@@ -1,3 +1,6 @@
+/* eslint-disable radix */
+/* eslint-disable no-nested-ternary */
+
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -77,7 +80,7 @@ const hasJsxRuntime = (() => {
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
-module.exports = function (webpackEnv) {
+module.exports = webpackEnv => {
   const isEnvDevelopment = webpackEnv === 'development';
   const isEnvProduction = webpackEnv === 'production';
 
@@ -202,7 +205,6 @@ module.exports = function (webpackEnv) {
       filename: isEnvProduction ?
         'static/js/[name].[contenthash:8].js' :
         isEnvDevelopment && 'static/js/bundle.js',
-      // TODO: remove this when upgrading to webpack 5
       futureEmitAssets: true,
       // There are also additional JS chunk files if you use code splitting.
       chunkFilename: isEnvProduction ?
@@ -465,7 +467,6 @@ module.exports = function (webpackEnv) {
                 cacheDirectory: true,
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
-
                 // Babel sourcemaps are needed for debugging into node_modules
                 // code.  Without the options below, debuggers like VSCode
                 // show incorrect code and set breakpoints on the wrong lines.
@@ -573,7 +574,6 @@ module.exports = function (webpackEnv) {
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         ({
-
           inject: true,
           template: paths.appHtml,
           ...(isEnvProduction ?
@@ -666,7 +666,6 @@ module.exports = function (webpackEnv) {
           const entrypointFiles = entrypoints.main.filter(
             fileName => !fileName.endsWith('.map'),
           );
-
           return {
             files: manifestFiles,
             entrypoints: entrypointFiles,

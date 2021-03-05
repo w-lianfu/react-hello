@@ -14,6 +14,8 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-var-requires': 'off',
+    'import/no-dynamic-require': 'off',
+    'global-require': 'off',
     'no-param-reassign': ['error', { props: false }],
     // A temporary hack related to IDE not resolving correct package.json
     'import/no-extraneous-dependencies': 'off',
